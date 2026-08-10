@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# paper/ 소논문·워크시트 빌드용 스크립트의 의존성 (docx, puppeteer-core)
+paper/node_modules
+
+# 로고 디자인 스크래치 작업 (최종본은 src/components/ui/LogoMark.tsx)
+logo_work/

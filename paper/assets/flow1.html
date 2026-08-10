@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Malgun Gothic', sans-serif; background: #ffffff; }
+  .wrap { width: 820px; padding: 30px 30px 10px; }
+  .box {
+    border-radius: 14px; border: 2.5px solid var(--bd);
+    background: var(--bg); padding: 16px 22px; text-align: center;
+  }
+  .box .num { font-size: 12px; font-weight: 700; color: var(--bd); letter-spacing: 1px; }
+  .box .title { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-top: 3px; }
+  .box .desc { font-size: 13px; color: #444; margin-top: 6px; line-height: 1.5; }
+  .arrow-col { display: flex; flex-direction: column; align-items: center; }
+  .arrow-line { width: 2.5px; height: 22px; background: #9aa0b4; }
+  .arrow-head { width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 11px solid #9aa0b4; margin-top: -2px; }
+  .arrow-label { font-size: 12px; color: #6b7280; margin: 3px 0; text-align: center; max-width: 380px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="box" style="--bd:#3b5bdb; --bg:#eaf0fe;">
+    <div class="num">STAGE 1 · 데이터 수집</div>
+    <div class="title">성격 설문 (27문항 리커트 7점 척도)</div>
+    <div class="desc">공감·위험회피·경쟁심·용서·단기이익, 5개 차원 × 5~6문항, 역채점 문항 포함</div>
+  </div>
+  <div class="arrow-col"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+  <div class="arrow-label">차원별 문항 평균 → 0~1 정규화</div>
+
+  <div class="box" style="--bd:#2f9e5f; --bg:#e8f8ee;">
+    <div class="num">STAGE 2 · 특성 벡터화</div>
+    <div class="title">성격 특성 벡터 θ = (e, r, c, f, s) ∈ [0,1]⁵</div>
+    <div class="desc">e=공감, r=위험회피, c=경쟁심, f=용서, s=단기이익</div>
+  </div>
+  <div class="arrow-col"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+  <div class="arrow-label">θ를 계수로 하는 보상 형성(reward shaping) 함수 구성</div>
+
+  <div class="box" style="--bd:#7c3aed; --bg:#f4edfd;">
+    <div class="num">STAGE 3 · 보상함수 설계</div>
+    <div class="title">성격 기반 보상함수 R<sub>θ</sub>(a, a′, a<sub>prev</sub>)</div>
+    <div class="desc">기본 보수 π(a,a′) + Δ-정규화된 성격 보정항 4종 + 근시성 배율(1+0.4s)</div>
+  </div>
+  <div class="arrow-col"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+  <div class="arrow-label">상태 s∈{0,…,63} 에서 ε-greedy 행동 선택 후 TD 갱신</div>
+
+  <div class="box" style="--bd:#3b5bdb; --bg:#eaf0fe;">
+    <div class="num">STAGE 4 · 강화학습</div>
+    <div class="title">Q-learning 자기 대전 학습 (episodes = N)</div>
+    <div class="desc">상대 60%: 기준전략 5종 무작위, 40%: 자기 자신의 현재 정책 복제본 · ε: 1.0 → 0.05 지수 감소</div>
+  </div>
+  <div class="arrow-col"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+  <div class="arrow-label">학습 종료 후 ε=0 그리디 정책으로 고정</div>
+
+  <div class="box" style="--bd:#2f9e5f; --bg:#e8f8ee;">
+    <div class="num">STAGE 5 · 정책 산출</div>
+    <div class="title">수렴된 정책 π*<sub>θ</sub>(s) = argmax<sub>a</sub> Q(s,a)</div>
+    <div class="desc">64개 상태 각각에 대해 협력/배신 중 학습된 최적 행동 결정</div>
+  </div>
+  <div class="arrow-col"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+  <div class="arrow-label">참가자 전원 + 기준전략 5종 전원이 서로 총당 대결 (round-robin)</div>
+
+  <div class="box" style="--bd:#d97706; --bg:#fef3e2;">
+    <div class="num">STAGE 6 · 토너먼트</div>
+    <div class="title">라운드-로빈 토너먼트 ( C(n,2) 대전 )</div>
+    <div class="desc">각 경기 R라운드, 순수 그리디 정책으로 대전 (탐험 없음)</div>
+  </div>
+  <div class="arrow-col"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+  <div class="arrow-label">협력률 · 평균점수 · Q(C) vs Q(D) 집계</div>
+
+  <div class="box" style="--bd:#7c3aed; --bg:#f4edfd;">
+    <div class="num">STAGE 7 · 통계 분석</div>
+    <div class="title">전략 분류 및 성격-협력률 피어슨 상관분석</div>
+    <div class="desc">협력형/조건협력형/기회주의형/배신형 분류, r(θ_k, coopRate) 계산</div>
+  </div>
+
+</div>
+</body>
+</html>

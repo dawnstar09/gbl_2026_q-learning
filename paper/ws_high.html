@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>죄수의 딜레마 활동지 (고등학교용)</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', sans-serif; color: #111; font-size: 10.1px; line-height: 1.44; }
+
+  .level-tag {
+    display: inline-block; background: #7c3aed; color: #fff; font-size: 9.5px; font-weight: 700;
+    padding: 2px 9px; border-radius: 999px; margin-bottom: 5px;
+  }
+  .title { font-size: 18px; font-weight: 800; }
+  .title .sub { font-weight: 700; font-size: 12.5px; }
+  .subtitle { font-size: 10.2px; font-weight: 600; margin-top: 3px; }
+
+  .infobar {
+    display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+    border-top: 1.6px solid #111; border-bottom: 1.6px solid #111;
+    padding: 6px 0; margin-top: 8px; font-size: 9.8px;
+  }
+  .infobar .field { display: flex; align-items: baseline; gap: 5px; }
+  .infobar .label { font-weight: 700; white-space: nowrap; }
+  .fillrule { display: inline-block; border-bottom: 1px solid #333; min-width: 90px; height: 12px; }
+
+  .goal { margin-top: 9px; font-size: 10px; background: #f2f2f2; padding: 6px 9px; border-radius: 3px; break-inside: avoid; }
+  .goal b { font-weight: 800; }
+
+  .section { margin-top: 10px; break-inside: avoid; }
+  .sec-head { display: flex; align-items: baseline; gap: 8px; border-bottom: 1.6px solid #111; padding-bottom: 3px; flex-wrap: wrap; break-after: avoid; }
+  .sec-num { font-size: 12.5px; font-weight: 800; }
+  .sec-desc { font-size: 9px; color: #444; }
+
+  .explain { margin-top: 6px; background: #f4edfd; border-left: 3px solid #7c3aed; padding: 6px 9px; font-size: 9.4px; border-radius: 2px; break-inside: avoid; }
+  .formula { margin-top: 6px; text-align: center; font-family: Consolas, monospace; font-size: 10.5px; background: #f7f7f7; border: 1px solid #ccc; border-radius: 3px; padding: 6px; break-inside: avoid; }
+
+  .row { display: flex; gap: 14px; margin-top: 6px; flex-wrap: wrap; break-inside: avoid; }
+  .field-line { display: flex; align-items: baseline; gap: 6px; }
+  .field-line .label { font-weight: 700; white-space: nowrap; }
+  .blank { border-bottom: 1px solid #333; display: inline-block; min-width: 60px; height: 11px; }
+  .blank.w20 { min-width: 22px; }
+  .blank.w40 { min-width: 40px; }
+  .blank.long { min-width: 150px; }
+
+  .writebox { margin-top: 5px; border: 1px solid #999; border-radius: 3px; min-height: 22px; padding: 4px 8px; break-inside: avoid; }
+  .writebox .prompt { font-weight: 700; font-size: 9.3px; color: #333; margin-bottom: 3px; }
+  .writebox.tall { min-height: 34px; }
+
+  table { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 9.2px; break-inside: avoid; }
+  th, td { border: 1px solid #999; padding: 3.5px 5px; text-align: center; }
+  th { background: #ececec; font-weight: 700; }
+  td.blankcell { height: 15px; }
+  td.left { text-align: left; }
+
+  .qbox { margin-top: 5px; font-size: 9.4px; break-inside: avoid; }
+  .qbox .q { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 3px; }
+
+  .mcq { margin-top: 4px; font-size: 9.4px; break-inside: avoid; }
+  .mcq .stem { font-weight: 700; }
+  .mcq .opts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .matching { display: flex; gap: 26px; margin-top: 5px; font-size: 9.4px; break-inside: avoid; }
+  .matching .col { flex: 1; }
+  .matching .item { border: 1px solid #999; border-radius: 3px; padding: 3px 7px; margin-top: 4px; }
+
+  .footer { text-align: center; font-size: 8.4px; color: #777; margin-top: 14px; }
+  .closing { margin-top: 7px; border: 1.6px solid #111; border-radius: 4px; padding: 7px 10px; text-align: center; font-weight: 700; font-size: 10.5px; break-inside: avoid; }
+
+  .imgrow { display: flex; gap: 8px; margin-top: 6px; align-items: flex-start; break-inside: avoid; }
+  .imgcard { flex: 1; border: 1px solid #ccc; border-radius: 4px; padding: 5px; text-align: center; background: #fff; break-inside: avoid; }
+  .imgcard img { width: 100%; height: auto; display: block; }
+  .imgcard .cap { font-size: 8.3px; color: #333; margin-top: 4px; line-height: 1.32; text-align: left; }
+  .imgcard .step { display: inline-block; background: #7c3aed; color: #fff; font-size: 7.8px; font-weight: 700; padding: 1px 6px; border-radius: 999px; margin-bottom: 3px; }
+</style>
+</head>
+<body>
+
+<span class="level-tag">고등학교용</span>
+<div class="title">죄수의 딜레마 <span class="sub">Q-learning 탐구 활동지</span></div>
+<div class="subtitle">벨만 방정식과 성격 기반 보상함수로 이해하는 강화학습</div>
+
+<div class="infobar">
+  <div class="field"><span class="label">모둠</span><span class="fillrule"></span></div>
+  <div class="field"><span class="label">이름</span><span class="fillrule" style="min-width:140px;"></span></div>
+  <div class="field"><span class="label">학년/반</span><span class="fillrule"></span></div>
+</div>
+
+<div class="goal"><b>탐구 목표</b> Q-learning의 벨만 방정식과 시간차 학습 구조를 이해하고, 성격 점수가 보상함수의 계수로 작동하는 원리를 계산을 통해 확인한 뒤, 실제 실험 데이터로 성격과 협력률의 관계를 분석한다.</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">0. 사전 생각</span><span class="sec-desc">지금 생각을 표시하세요. 점수에 반영하지 않습니다.</span></div>
+  <div class="qbox">
+    <div class="q"><span>1) 강화학습 에이전트는 상태 전이 확률 P(s′|s,a)를 몰라도 최적 정책에 수렴할 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+    <div class="q"><span>2) 보상을 정하는 기준이 달라지면 같은 게임에서도 다른 전략이 최적으로 학습될 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+    <div class="q"><span>3) 두 변인의 피어슨 상관계수가 0에 가까우면 두 변인은 아무 관련이 없다고 단정할 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">1. Q-learning이란</span><span class="sec-desc">Frozen Lake 예시로 개념을 먼저 확인합니다.</span></div>
+  <div class="explain">
+    에이전트는 전체 지도를 보지 못하고 현재 상태만 파악할 수 있으며, 목적지에 도착해야만 보상을 받으므로 도중에는 자기 행동이 좋은지 알 수 없다. 그래서 상태 s와 행동 a에 대한 가치를 저장하는 Q함수가 필요하다. 아래 예시로 그 과정을 확인해보자.
+  </div>
+</div>
+<div class="imgrow">
+  <div class="imgcard">
+    <div class="step">① 문제 설정</div>
+    <img src="assets/frozenlake_setup.png">
+    <div class="cap">S(시작)에서 G(목표)까지 이동해야 하며 H(구멍)에 빠지면 실패한다. 에이전트는 현재 상태만 관측 가능하다.</div>
+  </div>
+  <div class="imgcard">
+    <div class="step">② Q값 갱신 1회</div>
+    <img src="assets/frozenlake_update.png">
+    <div class="cap">상태 s&#8321;&#8323;에서 오른쪽으로 이동하면 목표에 도달하므로 Q(s&#8321;&#8323;, a<sub>right</sub>) = r + max Q(s&#8321;&#8324;, a) = 0 + 1 = 1로 갱신된다.</div>
+  </div>
+  <div class="imgcard">
+    <div class="step">③ 학습 수렴</div>
+    <img src="assets/frozenlake_result.png">
+    <div class="cap">위 갱신을 반복하면 목표까지 이어지는 경로 위의 상태들에 순차적으로 Q값이 채워지고, 정책 &pi;(s) = argmax Q(s,a)로 최단 경로를 찾을 수 있다.</div>
+  </div>
+</div>
+<div class="mcq">
+  <div class="stem">확인 문제) Q함수가 상태와 행동을 입력받아 출력하는 것은 무엇인가?</div>
+  <div class="opts"><span>☐ 다음 상태의 좌표</span><span>☐ 그 행동을 했을 때 기대할 수 있는 가치</span><span>☐ 지나온 경로의 길이</span></div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">2. 개념 확인 | Q-learning의 수학적 구조</span></div>
+  <div class="formula">Q(s, a) &larr; Q(s, a) + &alpha; [ r + &gamma; &middot; max Q(s′, a′) &minus; Q(s, a) ]</div>
+  <div class="matching">
+    <div class="col">
+      <div class="item">① &alpha;</div>
+      <div class="item">② &gamma;</div>
+      <div class="item">③ r + &gamma;maxQ(s′,a′) &minus; Q(s,a)</div>
+      <div class="item">④ max Q(s′, a′)</div>
+    </div>
+    <div class="col">
+      <div class="item">ㄱ. TD 오차</div>
+      <div class="item">ㄴ. 학습률</div>
+      <div class="item">ㄷ. 다음 상태에서 얻을 수 있는 최대 가치</div>
+      <div class="item">ㄹ. 감쇠율(미래 보상을 얼마나 반영할지)</div>
+    </div>
+  </div>
+  <div class="row"><div class="field-line"><span class="label">① &ndash; ④에 맞는 기호를 각각 적어보세요</span><span class="blank w20"></span><span class="blank w20"></span><span class="blank w20"></span><span class="blank w20"></span></div></div>
+
+  <div class="mcq">
+    <div class="stem">확인 문제) 학습 초반에 &epsilon;를 1.0 가까이 크게 두고, 학습이 진행될수록 0.05까지 줄이는 이유로 가장 알맞은 것은?</div>
+    <div class="opts">
+      <span>☐ 계산 속도를 높이기 위해서</span>
+      <span>☐ 초반에는 다양한 행동을 시도(탐험)하고, 후반에는 학습한 대로 행동(활용)하기 위해서</span>
+      <span>☐ 보상을 더 많이 받기 위해서</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">3. 상태 공간 계산</span><span class="sec-desc">최근 M라운드의 (내 행동, 상대 행동) 기록을 상태로 사용합니다.</span></div>
+  <div class="explain">한 라운드의 결과는 협력(C) 또는 배신(D) 2가지이고, 나와 상대의 행동을 함께 기록하므로 한 라운드당 2비트가 필요하다. 이번 활동에서는 최근 M = 3라운드를 기억한다.</div>
+  <div class="formula">상태 개수 = 2 ^ (2M),&nbsp; M = <span class="blank w20" style="margin:0 4px;"></span> 이므로&nbsp; 2 ^ (2 &times; <span class="blank w20" style="margin:0 4px;"></span>) = <span class="blank w40" style="margin:0 4px;"></span> 가지</div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">4. Loop 1 | 가설 세우기</span><span class="sec-desc">설문 전, 보상함수 계수를 근거로 예측합니다.</span></div>
+  <table>
+    <thead><tr><th style="width:14%;">성격</th><th style="width:30%;">보상함수에서의 역할</th><th style="width:12%;">내 예상 점수(0~1)</th><th>이 특성이 협력/배신에 줄 영향 예측</th></tr></thead>
+    <tbody>
+      <tr><td>공감 e</td><td class="left">상호협력 시 +e×2.0, 배신당하면 &minus;e×1.0</td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td>경쟁심 c</td><td class="left">점수차×c×0.8 만큼 가산</td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td>위험회피 r</td><td class="left">0점(협력했는데 배신당함) 시 &minus;r×2.0</td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td>용서 f</td><td class="left">배신→협력 복귀 시 +f×1.5</td><td class="blankcell"></td><td class="blankcell"></td></tr>
+    </tbody>
+  </table>
+  <div class="writebox"><div class="prompt">내 예상 Q(협력)과 Q(배신) 중 어느 쪽이 더 클지, 그렇게 예상한 근거</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">5. Loop 2 | 계산으로 검증하기</span><span class="sec-desc">내 성격 점수를 실제 보상함수 식에 대입해봅니다.</span></div>
+  <div class="row">
+    <div class="field-line"><span class="label">내 공감 점수 e =</span><span class="blank w20"></span></div>
+    <div class="field-line"><span class="label">상호협력 보너스 = e × 2.0 =</span><span class="blank w40"></span></div>
+  </div>
+  <div class="row">
+    <div class="field-line"><span class="label">내 위험회피 점수 r =</span><span class="blank w20"></span></div>
+    <div class="field-line"><span class="label">배신당했을 때 추가 손실 = r × 2.0 =</span><span class="blank w40"></span></div>
+  </div>
+  <div class="writebox"><div class="prompt">계산한 값이 내 에이전트의 실제 학습 결과(Q값, 협력률)와 어떻게 연결되는지 서술</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">6. Loop 3 | 상관관계 분석</span><span class="sec-desc">모둠 전체 데이터를 모아 경향성을 판단합니다.</span></div>
+  <table>
+    <thead><tr><th style="width:20%;">참가자</th><th>공감 점수</th><th>경쟁심 점수</th><th>실제 협력률(%)</th></tr></thead>
+    <tbody>
+      <tr><td class="blankcell">나</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="field-line"><span class="label">공감 점수와 협력률의 관계</span>
+      <span>☐ 양의 상관(공감 ↑ 협력률 ↑)</span>
+      <span>☐ 음의 상관</span>
+      <span>☐ 뚜렷한 관계 없음</span>
+    </div>
+  </div>
+  <div class="writebox"><div class="prompt">표를 보고 판단한 근거 (점 몇 개가 이 경향을 벗어나는지도 함께 서술)</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">7. 실제 실험 결과 기록</span><span class="sec-desc">웹앱 결과 화면에서 확인한 나의 최종 수치를 정확히 옮겨 적습니다.</span></div>
+  <table>
+    <thead><tr><th>평균 점수</th><th>협력률</th><th>전략 유형</th><th>Q(협력) 평균</th><th>Q(배신) 평균</th><th>협력 선호 상태 수</th></tr></thead>
+    <tbody>
+      <tr><td class="blankcell"></td><td class="blankcell">%</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell">/ 64</td></tr>
+    </tbody>
+  </table>
+  <div class="writebox"><div class="prompt">3번에서 세운 가설, 4번의 계산값, 6번의 실제 결과를 비교했을 때 가설이 얼마나 맞았는지</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">8. 모델의 한계 성찰</span></div>
+  <div class="explain">이 활동의 결과가 실제 인간의 행동을 완벽하게 예측하는 것은 아니다. 설문 결과를 수학적으로 단순화하여 보상함수에 적용한 모형이므로, 실제 사람의 복잡한 판단과는 차이가 있을 수 있다.</div>
+  <div class="writebox"><div class="prompt">이 모델이 실제 사람의 성격과 행동을 단순화한 부분은 어디라고 생각하는지, 보완한다면 무엇을 추가하고 싶은지</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-head"><span class="sec-num">9. 디브리핑</span></div>
+  <div class="qbox">
+    <div class="q"><span>1) 강화학습 에이전트는 상태 전이 확률을 몰라도 최적 정책에 수렴할 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+    <div class="q"><span>2) 보상을 정하는 기준이 달라지면 같은 게임에서도 다른 전략이 최적으로 학습될 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+    <div class="q"><span>3) 상관계수만으로 두 변인의 인과관계까지 단정할 수는 없다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+  </div>
+</div>
+
+<div class="closing">한 문장 결론 &ldquo;보상의 기준을 바꾸는 것만으로 정말 다른 전략이 학습되는가, 내 데이터는 무엇을 보여주는가&rdquo;</div>
+
+<div class="footer">죄수의 딜레마 Q-learning 탐구 활동지 (고등학교용)</div>
+
+</body>
+</html>

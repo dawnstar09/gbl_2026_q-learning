@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 죄수의 딜레마 Q-learning 성격 에이전트 시뮬레이터
 
-## Getting Started
+성격(공감·경쟁심·위험회피·용서·단기이익)을 설문으로 측정하고, 그 성격을 보상함수에 반영해 스스로 전략을 학습하는 Q-learning 에이전트를 만들어 반복 죄수의 딜레마 토너먼트를 진행하는 웹 애플리케이션입니다.
 
-First, run the development server:
+전략을 사람이 직접 코딩하지 않고, "이 사람이라면 어떤 결과를 더 좋아할까"만 보상함수로 설계하면 협력/배신 여부는 에이전트가 스스로 학습해서 결정합니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 핵심 아이디어
+
+```
+성격 설문 → 성격 특성 벡터 → 보상함수 파라미터화 → Q-learning 학습(자기대전+기준전략) → 정책 수렴 → 토너먼트 → 상관분석
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **상태**: 최근 3라운드의 (내 행동, 상대 행동) 기록 → 2⁶ = 64가지
+- **학습**: `Q(s,a) ← Q(s,a) + α[r + γ·maxQ(s′,a′) − Q(s,a)]`, ε-greedy 탐험(1.0→0.05)
+- **평가**: 팃포탯·그루지·항상협력·항상배신·랜덤 5개 기준 전략과 라운드-로빈 토너먼트 후 협력률·평균점수·전략 유형(협력형/조건협력형/기회주의형/배신형) 산출, 성격 점수와 협력률의 피어슨 상관분석
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 화면 흐름
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+타이틀 → 튜토리얼(3단계) → 실험 설정 → 성격 설문(참가자별) → 학습 진행 → 토너먼트 결과(순위표·차트·Q-table 분석·CSV 다운로드)
 
-## Learn More
+## 실행
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+http://localhost:3000 에서 확인할 수 있습니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 기술 스택
 
-## Deploy on Vercel
+Next.js 15 (App Router) · TypeScript · Tailwind CSS · Recharts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 폴더 구조
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/               # 라우트 엔트리
+  components/
+    screens/         # 타이틀·튜토리얼·설정·설문·학습·결과 화면
+    ui/               # 재사용 컴포넌트 (버튼, 로고, 리커트 스케일 등)
+  lib/engine.ts        # Q-learning·보상함수·토너먼트·통계 로직 전체
+paper/                 # 소논문(docx), 부스 활동지(PDF), 시스템 플로우차트
+```
+
+## 소논문 및 부스 자료
+
+`paper/` 폴더에 이론적 배경(Q-learning, 벨만 방정식)과 이번 활동에서의 적용을 정리한 소논문, 중학교/고등학교 수준별 탐구 활동지, 시스템 플로우차트가 포함되어 있습니다.
+
+GBL 프로젝트 | 2026

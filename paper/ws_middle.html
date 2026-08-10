@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>죄수의 딜레마 활동지 (중학교용)</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', sans-serif; color: #111; font-size: 10.5px; line-height: 1.5; }
+
+  .level-tag {
+    display: inline-block; background: #12162a; color: #fff; font-size: 9.5px; font-weight: 700;
+    padding: 2px 9px; border-radius: 999px; margin-bottom: 5px;
+  }
+  .title { font-size: 19px; font-weight: 800; }
+  .title .sub { font-weight: 700; font-size: 13px; }
+  .subtitle { font-size: 10.5px; font-weight: 600; margin-top: 3px; }
+
+  .infobar {
+    display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+    border-top: 1.6px solid #111; border-bottom: 1.6px solid #111;
+    padding: 6px 0; margin-top: 8px; font-size: 10px;
+  }
+  .infobar .field { display: flex; align-items: baseline; gap: 5px; }
+  .infobar .label { font-weight: 700; white-space: nowrap; }
+  .fillrule { display: inline-block; border-bottom: 1px solid #333; min-width: 90px; height: 12px; }
+
+  .goal { margin-top: 9px; font-size: 10.3px; background: #f2f2f2; padding: 6px 9px; border-radius: 3px; break-inside: avoid; }
+  .goal b { font-weight: 800; }
+
+  .section { margin-top: 12px; break-inside: avoid; }
+  .sec-head { display: flex; align-items: baseline; gap: 8px; border-bottom: 1.6px solid #111; padding-bottom: 3px; flex-wrap: wrap; break-after: avoid; }
+  .sec-num { font-size: 13px; font-weight: 800; }
+  .sec-desc { font-size: 9.3px; color: #444; }
+
+  .explain {
+    margin-top: 6px; background: #eef1fa; border-left: 3px solid #3b5bdb; padding: 6px 9px; font-size: 9.8px; border-radius: 2px; break-inside: avoid;
+  }
+
+  .row { display: flex; gap: 16px; margin-top: 7px; flex-wrap: wrap; break-inside: avoid; }
+  .field-line { display: flex; align-items: baseline; gap: 6px; }
+  .field-line .label { font-weight: 700; white-space: nowrap; }
+  .blank { border-bottom: 1px solid #333; display: inline-block; min-width: 70px; height: 12px; }
+  .blank.w20 { min-width: 24px; }
+  .blank.w40 { min-width: 44px; }
+  .blank.long { min-width: 160px; }
+
+  .writebox { margin-top: 6px; border: 1px solid #999; border-radius: 3px; min-height: 26px; padding: 5px 8px; break-inside: avoid; }
+  .writebox .prompt { font-weight: 700; font-size: 9.6px; color: #333; margin-bottom: 3px; }
+  .writebox.tall { min-height: 40px; }
+
+  table { border-collapse: collapse; width: 100%; margin-top: 7px; font-size: 9.6px; break-inside: avoid; }
+  th, td { border: 1px solid #999; padding: 4px 6px; text-align: center; }
+  th { background: #ececec; font-weight: 700; }
+  td.blankcell { height: 17px; }
+  td.left { text-align: left; }
+
+  .qbox { margin-top: 6px; font-size: 9.8px; break-inside: avoid; }
+  .qbox .q { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 4px; }
+
+  .mcq { margin-top: 5px; font-size: 9.8px; break-inside: avoid; }
+  .mcq .stem { font-weight: 700; }
+  .mcq .opts { margin-top: 3px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .grid {
+    margin-top: 6px; border: 1px solid #999; border-radius: 3px; height: 100px;
+    background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px);
+    background-size: 12.5% 20%; break-inside: avoid;
+  }
+  .grid-caption { font-size: 8.8px; color: #666; margin-top: 2px; }
+
+  .footer { text-align: center; font-size: 8.6px; color: #777; margin-top: 14px; }
+  .closing { margin-top: 8px; border: 1.6px solid #111; border-radius: 4px; padding: 8px 10px; text-align: center; font-weight: 700; font-size: 11px; break-inside: avoid; }
+
+  .imgrow { display: flex; gap: 8px; margin-top: 7px; align-items: flex-start; break-inside: avoid; }
+  .imgcard { flex: 1; border: 1px solid #ccc; border-radius: 4px; padding: 5px; text-align: center; background: #fff; break-inside: avoid; }
+  .imgcard img { width: 100%; height: auto; display: block; }
+  .imgcard .cap { font-size: 8.6px; color: #333; margin-top: 4px; line-height: 1.35; }
+  .imgcard .step { display: inline-block; background: #12162a; color: #fff; font-size: 8px; font-weight: 700; padding: 1px 6px; border-radius: 999px; margin-bottom: 3px; }
+</style>
+</head>
+<body>
+
+  <span class="level-tag">중학교용</span>
+  <div class="title">죄수의 딜레마 <span class="sub">AI 탐구 활동지</span></div>
+  <div class="subtitle">내 성격을 배우는 AI 요원 만들기</div>
+
+  <div class="infobar">
+    <div class="field"><span class="label">모둠</span><span class="fillrule"></span></div>
+    <div class="field"><span class="label">이름</span><span class="fillrule" style="min-width:140px;"></span></div>
+    <div class="field"><span class="label">학년/반</span><span class="fillrule"></span></div>
+  </div>
+
+  <div class="goal"><b>오늘의 목표</b> AI가 시행착오를 거쳐 스스로 배우는 원리(강화학습)를 이해하고, 내 성격을 반영해 만든 AI 요원이 협력할지 배신할지 예측하고 실제 결과와 비교해본다.</div>
+
+  <div class="section">
+    <div class="sec-head"><span class="sec-num">0. 시작 전 생각</span><span class="sec-desc">지금 드는 생각에 표시하세요. 점수에 들어가지 않아요.</span></div>
+    <div class="qbox">
+      <div class="q"><span>1) 컴퓨터는 사람이 하나하나 방법을 알려줘야만 문제를 풀 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+      <div class="q"><span>2) 성격이 다르면 같은 상황에서도 다른 선택을 할 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+      <div class="q"><span>3) 한 번 배신한 상대에게는 나도 무조건 계속 배신하는 게 이득이다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="sec-num">1. AI는 어떻게 배울까</span><span class="sec-desc">Q-learning을 쉽게 풀어봅니다.</span></div>
+    <div class="explain">
+      얼음 호수 위를 걷는 로봇을 떠올려보자. 로봇은 지도를 미리 볼 수 없고, 한 걸음씩 움직여보며 목적지에 도착하거나 구멍에 빠지는 경험을 통해서만 배운다. 이런 시도를 수천 번 반복하면서 로봇은 &ldquo;이 상황에서는 이렇게 움직이면 좋더라&rdquo;라는 나만의 점수표(Q표)를 스스로 채워나간다. 이렇게 시행착오와 점수(보상)로 행동 방법을 배우는 것을 강화학습이라고 부른다.
+    </div>
+
+    <div class="imgrow">
+      <div class="imgcard">
+        <div class="step">① 문제</div>
+        <img src="assets/frozenlake_setup.png">
+        <div class="cap">S에서 출발해 G(목적지)까지 가야 한다. H(구멍)에 빠지면 안 된다. 로봇은 이 전체 지도를 모른 채, 한 칸씩만 보고 움직인다.</div>
+      </div>
+      <div class="imgcard">
+        <div class="step">② 한 번의 배움</div>
+        <img src="assets/frozenlake_update.png">
+        <div class="cap">빨간 동그라미 칸에서 오른쪽으로 가면 바로 목적지라는 걸 알게 되자, 그 칸의 점수(Q값)가 1로 채워졌다.</div>
+      </div>
+      <div class="imgcard">
+        <div class="step">③ 학습 완료</div>
+        <img src="assets/frozenlake_result.png">
+        <div class="cap">이 과정을 수없이 반복하면 구멍을 피해 목적지까지 가는 길 전체에 점수 1이 채워진다. 이제 로봇은 점수를 따라가기만 하면 된다.</div>
+      </div>
+    </div>
+
+    <div class="mcq">
+      <div class="stem">확인 문제 1) 로봇이 구멍에 빠지면 그 행동의 점수는 어떻게 될까?</div>
+      <div class="opts"><span>☐ 올라간다</span><span>☐ 내려간다</span><span>☐ 변하지 않는다</span></div>
+    </div>
+    <div class="mcq">
+      <div class="stem">확인 문제 2) 로봇이 점점 더 똑똑해지는 이유는 무엇일까?</div>
+      <div class="opts"><span>☐ 미리 정답을 외워서</span><span>☐ 시도하고 점수를 받는 것을 반복해서</span><span>☐ 사람이 매번 알려줘서</span></div>
+    </div>
+    <div class="mcq">
+      <div class="stem">확인 문제 3) 오늘 활동에서 로봇의 얼음 호수에 해당하는 것은 무엇일까?</div>
+      <div class="opts"><span>☐ 죄수의 딜레마 게임</span><span>☐ 성격 설문지</span><span>☐ 팃포탯 전략</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="sec-num">2. Loop 1 | 나의 예상</span><span class="sec-desc">설문에 답하기 전, 내 성격만 생각하며 먼저 예상해봅니다.</span></div>
+    <div class="row">
+      <div class="field-line"><span class="label">받은 대로 갚는 상대(팃포탯)를 만나면</span><span class="blank w40"></span></div>
+      <div class="field-line"><span class="label">예상 협력 비율</span><span class="blank w20"></span><span>%</span></div>
+    </div>
+    <div class="writebox"><div class="prompt">이렇게 예상한 이유</div></div>
+  </div>
+
+
+  <div class="section" style="margin-top:0;">
+    <div class="sec-head"><span class="sec-num">3. Loop 2 | 왜 이런 결과가 나왔을까</span><span class="sec-desc">성격 점수가 보상에 어떤 영향을 주는지 알아봅니다.</span></div>
+    <div class="explain">
+      내 AI 요원은 협력이나 배신을 선택할 때마다 점수를 받는다. 그런데 똑같은 점수라도 내 성격에 따라 &ldquo;더 좋다고 느끼는 정도&rdquo;가 달라지도록 설계되어 있다. 예를 들어 공감 점수가 높으면 서로 협력했을 때 보너스 점수를 더 많이 받고, 반대로 상대에게 배신당하면 더 크게 감점된다.
+    </div>
+    <table>
+      <thead><tr><th style="width:16%;">성격 특성</th><th style="width:12%;">내 점수</th><th style="width:36%;">이 특성이 높으면 생기는 일</th><th>그래서 나는 협력을 더 (했을지/안 했을지) 예상</th></tr></thead>
+      <tbody>
+        <tr><td>공감</td><td class="blankcell"></td><td class="left">서로 협력할 때 보너스 점수 증가</td><td class="blankcell"></td></tr>
+        <tr><td>경쟁심</td><td class="blankcell"></td><td class="left">상대보다 점수가 높을수록 만족도 증가</td><td class="blankcell"></td></tr>
+        <tr><td>위험회피</td><td class="blankcell"></td><td class="left">배신당해 0점을 받으면 손해를 더 크게 느낌</td><td class="blankcell"></td></tr>
+        <tr><td>용서</td><td class="blankcell"></td><td class="left">배신 후 다시 협력하면 보너스 점수</td><td class="blankcell"></td></tr>
+        <tr><td>단기이익</td><td class="blankcell"></td><td class="left">지금 당장 얻는 점수를 더 크게 느낌</td><td class="blankcell"></td></tr>
+      </tbody>
+    </table>
+    <div class="writebox"><div class="prompt">내 예상과 실제 결과가 달랐다면, 그 이유는 무엇이었을지</div></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="sec-num">4. 실제 실험 결과 기록</span><span class="sec-desc">웹앱에서 확인한 나의 진짜 결과를 적어봅니다.</span></div>
+    <table>
+      <thead><tr><th>내 최종 협력률</th><th>평균 점수</th><th>전략 유형</th><th>예상과 같았나요</th></tr></thead>
+      <tbody>
+        <tr><td class="blankcell">%</td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell">☐ 예 ☐ 아니오</td></tr>
+      </tbody>
+    </table>
+    <table style="margin-top:9px;">
+      <thead><tr><th style="width:22%;">모둠 친구 이름</th><th>협력률</th><th>전략 유형</th><th>나와 다른 점</th></tr></thead>
+      <tbody>
+        <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+        <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+        <tr><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td><td class="blankcell"></td></tr>
+      </tbody>
+    </table>
+    <div class="grid"></div>
+    <div class="grid-caption">위 칸에 나와 친구들의 협력률을 막대그래프로 그려보세요 (가로 칸 1개 = 친구 1명, 세로 칸 1개 = 협력률 20%)</div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="sec-num">5. 마무리 생각</span><span class="sec-desc">처음 생각과 비교해봅니다.</span></div>
+    <div class="qbox">
+      <div class="q"><span>1) 컴퓨터는 사람이 하나하나 방법을 알려줘야만 문제를 풀 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+      <div class="q"><span>2) 성격이 다르면 같은 게임에서도 다른 전략을 배울 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+      <div class="q"><span>3) 배신한 상대라도 다시 협력할 기회를 줄 수 있다.</span><span>☐ 그렇다 &nbsp; ☐ 아니다</span></div>
+    </div>
+    <div class="writebox tall"><div class="prompt">활동 전과 비교해 새롭게 알게 된 점</div></div>
+  </div>
+
+  <div class="closing">한 줄 정리 &ldquo;내 성격을 닮은 AI는 왜 그런 선택을 하게 되었을까?&rdquo;</div>
+
+<div class="footer">죄수의 딜레마 AI 탐구 활동지 (중학교용)</div>
+
+</body>
+</html>

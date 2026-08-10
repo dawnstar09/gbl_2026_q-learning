@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Malgun Gothic', sans-serif; background: #fff; }
+  .wrap { width: 900px; padding: 30px; }
+  .loop-stage { position: relative; width: 840px; height: 300px; margin: 0 auto; }
+  .node {
+    position: absolute; width: 260px; border-radius: 16px; border: 2.5px solid var(--bd);
+    background: var(--bg); padding: 16px; text-align: center; top: 90px;
+  }
+  .node .t { font-size: 17px; font-weight: 700; color: #1a1a2e; }
+  .node .d { font-size: 12.5px; color: #444; margin-top: 6px; line-height: 1.5; }
+  .agent { left: 20px; --bd:#3b5bdb; --bg:#eaf0fe; }
+  .env { right: 20px; --bd:#d97706; --bg:#fef3e2; }
+  .lbl-top { position: absolute; top: 46px; left: 300px; width: 240px; text-align: center; font-size: 13px; color: #2f9e5f; font-weight: 700; }
+  .lbl-bot { position: absolute; top: 208px; left: 300px; width: 240px; text-align: center; font-size: 13px; color: #b3261e; font-weight: 700; }
+
+  .steps { width: 840px; margin: 10px auto 0; display: flex; align-items: stretch; }
+  .step { flex: 1; border: 2px solid #9aa0b4; border-radius: 12px; padding: 12px 10px; text-align: center; background: #fafafe; margin: 0 6px; }
+  .step .n { display:inline-block; width:22px; height:22px; line-height:22px; border-radius:50%; background:#3b5bdb; color:#fff; font-size:12px; font-weight:700; }
+  .step .t { font-size: 13px; font-weight: 700; margin-top: 8px; color:#1a1a2e; }
+  .step .f { font-size: 12px; color: #444; margin-top: 5px; font-family: Consolas, monospace; }
+  .chevron { display:flex; align-items:center; justify-content:center; width:22px; font-size: 18px; color:#9aa0b4; }
+  .caption { text-align:center; font-size:13px; color:#555; margin-top:18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="loop-stage">
+    <svg width="840" height="300" style="position:absolute; top:0; left:0;">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#2f9e5f"></path>
+        </marker>
+        <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#b3261e"></path>
+        </marker>
+      </defs>
+      <path d="M 300 95 C 380 70, 460 70, 540 95" stroke="#2f9e5f" stroke-width="2.5" fill="none" marker-end="url(#arrow)"></path>
+      <path d="M 540 205 C 460 232, 380 232, 300 205" stroke="#b3261e" stroke-width="2.5" fill="none" marker-end="url(#arrow2)"></path>
+    </svg>
+    <div class="lbl-top">상태 sₜ, 행동 aₜ = π(sₜ)</div>
+    <div class="node agent">
+      <div class="t">에이전트 (QLearningAgent)</div>
+      <div class="d">Q[64][2] 테이블 보유<br>decide(): ε-greedy로 aₜ 결정<br>learn(): TD 오차로 Q 갱신</div>
+    </div>
+    <div class="node env">
+      <div class="t">환경 (상대 에이전트)</div>
+      <div class="d">기준전략 5종 또는<br>자기 자신의 정책 복제본<br>aₜ′ = opponent.decide()</div>
+    </div>
+    <div class="lbl-bot">보상 Rθ(aₜ,aₜ′,aₜ₋₁), 다음 상태 sₜ₊₁</div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="n">1</span>
+      <div class="t">상태 인코딩</div>
+      <div class="f">s = encode(hist_my, hist_opp)</div>
+    </div>
+    <div class="chevron">›</div>
+    <div class="step">
+      <span class="n">2</span>
+      <div class="t">행동 선택</div>
+      <div class="f">a ~ ε-greedy(Q[s])</div>
+    </div>
+    <div class="chevron">›</div>
+    <div class="step">
+      <span class="n">3</span>
+      <div class="t">보상 계산</div>
+      <div class="f">r = R_θ(a, a′, a_prev)</div>
+    </div>
+    <div class="chevron">›</div>
+    <div class="step">
+      <span class="n">4</span>
+      <div class="t">TD 갱신</div>
+      <div class="f">Q[s,a] += α(r+γmaxQ[s′]−Q[s,a])</div>
+    </div>
+  </div>
+
+  <div class="caption">그림 2. Q-learning 에이전트-환경 상호작용 루프와 1스텝 갱신 절차</div>
+
+</div>
+</body>
+</html>

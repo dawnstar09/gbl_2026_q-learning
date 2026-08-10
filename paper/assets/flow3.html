@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Malgun Gothic', sans-serif; background: #fff; }
+  .wrap { width: 1080px; padding: 34px; }
+  .row { display: flex; align-items: stretch; position: relative; }
+  .card {
+    width: 190px; border-radius: 14px; border: 2.5px solid var(--bd); background: var(--bg);
+    padding: 14px 12px; text-align: center; position: relative;
+  }
+  .card .tag { font-size: 11px; font-weight: 700; color: var(--bd); }
+  .card .t { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-top: 4px; }
+  .card ul { list-style: none; margin-top: 8px; text-align: left; }
+  .card li { font-size: 11.5px; color: #444; margin-top: 4px; line-height: 1.4; padding-left: 10px; position: relative; }
+  .card li::before { content: '·'; position: absolute; left: 0; color: var(--bd); font-weight: 700; }
+  .chev { display: flex; align-items: center; justify-content: center; width: 34px; font-size: 20px; color: #9aa0b4; }
+  .loop-badge {
+    position: absolute; top: -14px; right: -10px; background: #d97706; color: #fff; font-size: 10.5px;
+    font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  }
+  .back-arrow { width: 1080px; margin-top: 8px; position: relative; height: 46px; }
+  .back-arrow svg { position: absolute; top: 0; left: 0; }
+  .back-label { position: absolute; top: 6px; left: 460px; width: 200px; text-align: center; font-size: 12.5px; color: #b3261e; font-weight: 700; }
+  .caption { text-align:center; font-size:13px; color:#555; margin-top:34px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="row">
+
+    <div class="card" style="--bd:#3b5bdb; --bg:#eaf0fe;">
+      <div class="tag">SCREEN 1</div>
+      <div class="t">타이틀 화면</div>
+      <ul>
+        <li>서비스 소개</li>
+        <li>"게임 시작" CTA</li>
+      </ul>
+    </div>
+    <div class="chev">›</div>
+
+    <div class="card" style="--bd:#2f9e5f; --bg:#e8f8ee;">
+      <div class="tag">SCREEN 2</div>
+      <div class="t">실험 설정 화면</div>
+      <ul>
+        <li>참가 인원 수</li>
+        <li>학습 에피소드 수</li>
+        <li>토너먼트 라운드 수</li>
+        <li>결과 파일명</li>
+      </ul>
+    </div>
+    <div class="chev">›</div>
+
+    <div class="card" style="--bd:#7c3aed; --bg:#f4edfd;">
+      <span class="loop-badge">× 참가자 N명</span>
+      <div class="tag">SCREEN 3</div>
+      <div class="t">설문 화면</div>
+      <ul>
+        <li>이름 입력</li>
+        <li>5개 차원 × 리커트7점</li>
+        <li>27문항 (5단계 진행)</li>
+      </ul>
+    </div>
+    <div class="chev">›</div>
+
+    <div class="card" style="--bd:#3b5bdb; --bg:#eaf0fe;">
+      <div class="tag">SCREEN 4</div>
+      <div class="t">학습 진행 화면</div>
+      <ul>
+        <li>에이전트별 진행률</li>
+        <li>ε, 최근 평균점수 표시</li>
+        <li>비동기 청크 학습</li>
+      </ul>
+    </div>
+    <div class="chev">›</div>
+
+    <div class="card" style="--bd:#d97706; --bg:#fef3e2;">
+      <div class="tag">SCREEN 5</div>
+      <div class="t">토너먼트 결과 화면</div>
+      <ul>
+        <li>순위표 · 전략분류</li>
+        <li>협력률 / 평균점수 차트</li>
+        <li>Q-table 분석 · 상관분석</li>
+        <li>CSV 다운로드</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="back-arrow">
+    <svg width="1080" height="46">
+      <defs>
+        <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#b3261e"></path>
+        </marker>
+      </defs>
+      <path d="M 1005 6 L 1005 30 L 95 30 L 95 6" stroke="#b3261e" stroke-width="2.2" fill="none" marker-end="url(#arrow3)"></path>
+    </svg>
+    <div class="back-label">"다시 하기" → 상태 초기화 후 SCREEN 1로 복귀</div>
+  </div>
+
+  <div class="caption">그림 3. 웹 애플리케이션 화면 전이(state machine) 흐름도 — src/app/page.tsx의 phase 상태로 제어</div>
+</div>
+</body>
+</html>
