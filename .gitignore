@@ -43,7 +43,7 @@ next-env.d.ts
 # paper/ 소논문·워크시트 빌드용 스크립트의 의존성 (docx, puppeteer-core)
 paper/node_modules
 
-# 로고 디자인 스크래치 작업 (최종본은 src/components/ui/LogoMark.tsx)
+# 로고 시안 스크래치 작업 (최종 로고는 public/logo.png)
 logo_work/
 
 # 보고서 실험용 엔진 컴파일 산출물
