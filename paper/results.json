@@ -1,0 +1,1064 @@
+{
+  "appendix": {
+    "counts": {
+      "empathy": {
+        "total": 6,
+        "reverse": 2
+      },
+      "risk_aversion": {
+        "total": 5,
+        "reverse": 1
+      },
+      "competitiveness": {
+        "total": 6,
+        "reverse": 2
+      },
+      "forgiveness": {
+        "total": 5,
+        "reverse": 2
+      },
+      "short_term": {
+        "total": 5,
+        "reverse": 2
+      }
+    },
+    "exampleRaw": [
+      5,
+      1,
+      4,
+      5,
+      4,
+      2,
+      3,
+      2,
+      3,
+      4,
+      4,
+      5,
+      5,
+      1,
+      4,
+      2,
+      5,
+      4,
+      1,
+      5,
+      2,
+      4,
+      1,
+      5,
+      3,
+      1,
+      5
+    ],
+    "exampleTraits": {
+      "name": "예시참가자",
+      "empathy": 0.75,
+      "risk_aversion": 0.4666666666666667,
+      "competitiveness": 0.7777777777777777,
+      "forgiveness": 0.7333333333333333,
+      "short_term": 0.5
+    },
+    "detail": {
+      "empathy": [
+        {
+          "idx": 1,
+          "q": "친구가 힘들어 보일 때 먼저 다가가는 편이다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 2,
+          "q": "낯선 사람이 어려움을 겪어도 그냥 지나치는 경우가 많다",
+          "reverse": true,
+          "raw": 1,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 3,
+          "q": "다른 사람의 감정이 나에게 전해지는 경험을 자주 한다",
+          "reverse": false,
+          "raw": 4,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 4,
+          "q": "누군가 공개적으로 비난받는 장면을 보면 불편하다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 5,
+          "q": "상대방 입장에서 생각하는 것이 어렵지 않다",
+          "reverse": false,
+          "raw": 4,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 6,
+          "q": "갈등 상황에서 상대의 감정보다 사실 관계에 더 집중한다",
+          "reverse": true,
+          "raw": 2,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        }
+      ],
+      "risk_aversion": [
+        {
+          "idx": 7,
+          "q": "결과가 확실하지 않으면 행동하기를 꺼린다",
+          "reverse": false,
+          "raw": 3,
+          "adj": 3,
+          "norm": 0.5
+        },
+        {
+          "idx": 8,
+          "q": "기대 이익이 높아도 손실 가능성이 있으면 피한다",
+          "reverse": false,
+          "raw": 2,
+          "adj": 2,
+          "norm": 0.3333333333333333
+        },
+        {
+          "idx": 9,
+          "q": "새로운 도전보다 검증된 방법을 선택하는 편이다",
+          "reverse": false,
+          "raw": 3,
+          "adj": 3,
+          "norm": 0.5
+        },
+        {
+          "idx": 10,
+          "q": "손실은 같은 크기의 이익보다 훨씬 크게 느껴진다",
+          "reverse": false,
+          "raw": 4,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 11,
+          "q": "큰 보상이 기대되면 불확실해도 기꺼이 시도한다",
+          "reverse": true,
+          "raw": 4,
+          "adj": 2,
+          "norm": 0.3333333333333333
+        }
+      ],
+      "competitiveness": [
+        {
+          "idx": 12,
+          "q": "게임이나 시험에서 지면 꼭 이기고 싶다는 생각이 든다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 13,
+          "q": "내가 남보다 더 나은 결과를 냈을 때 만족감이 크다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 14,
+          "q": "승패보다 과정이 더 중요하다고 생각한다",
+          "reverse": true,
+          "raw": 1,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 15,
+          "q": "경쟁 상황에서 긴장감이 오히려 동기부여가 된다",
+          "reverse": false,
+          "raw": 4,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 16,
+          "q": "반드시 이겨야 한다는 압박감을 잘 느끼지 않는다",
+          "reverse": true,
+          "raw": 2,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 17,
+          "q": "상대가 앞서가고 있다는 걸 알면 더 열심히 하게 된다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        }
+      ],
+      "forgiveness": [
+        {
+          "idx": 18,
+          "q": "나에게 잘못한 사람을 대부분 용서할 수 있다",
+          "reverse": false,
+          "raw": 4,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 19,
+          "q": "한 번 배신당한 상대는 다시 신뢰하기 어렵다",
+          "reverse": true,
+          "raw": 1,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 20,
+          "q": "갈등 후에 먼저 화해를 제안하는 편이다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 21,
+          "q": "나에게 상처를 준 사람에 대한 감정이 오래 남는다",
+          "reverse": true,
+          "raw": 2,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        },
+        {
+          "idx": 22,
+          "q": "관계가 회복 가능하다면 과거는 덮어둘 수 있다",
+          "reverse": false,
+          "raw": 4,
+          "adj": 4,
+          "norm": 0.6666666666666666
+        }
+      ],
+      "short_term": [
+        {
+          "idx": 23,
+          "q": "나중에 더 큰 보상보다 지금 당장의 적은 보상이 더 매력적이다",
+          "reverse": false,
+          "raw": 1,
+          "adj": 1,
+          "norm": 0.16666666666666666
+        },
+        {
+          "idx": 24,
+          "q": "1년 뒤의 큰 이익을 위해 지금의 즐거움을 포기할 수 있다",
+          "reverse": true,
+          "raw": 5,
+          "adj": 1,
+          "norm": 0.16666666666666666
+        },
+        {
+          "idx": 25,
+          "q": "계획을 세울 때 단기 목표에 집중하는 편이다",
+          "reverse": false,
+          "raw": 3,
+          "adj": 3,
+          "norm": 0.5
+        },
+        {
+          "idx": 26,
+          "q": "지금 당장의 이익보다 미래를 위한 투자가 더 중요하다",
+          "reverse": true,
+          "raw": 1,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        },
+        {
+          "idx": 27,
+          "q": "기다리는 것이 불편하고 빠른 결과를 원한다",
+          "reverse": false,
+          "raw": 5,
+          "adj": 5,
+          "norm": 0.8333333333333334
+        }
+      ]
+    },
+    "rewards": [
+      {
+        "my": "C",
+        "opp": "C",
+        "prev": null,
+        "base": 3,
+        "oppBase": 3,
+        "reward": 5.3999999999999995
+      },
+      {
+        "my": "C",
+        "opp": "C",
+        "prev": "D",
+        "base": 3,
+        "oppBase": 3,
+        "reward": 6.499999999999999
+      },
+      {
+        "my": "C",
+        "opp": "D",
+        "prev": null,
+        "base": 0,
+        "oppBase": 5,
+        "reward": -5.566666666666666
+      },
+      {
+        "my": "C",
+        "opp": "D",
+        "prev": "D",
+        "base": 0,
+        "oppBase": 5,
+        "reward": -4.466666666666667
+      },
+      {
+        "my": "D",
+        "opp": "C",
+        "prev": null,
+        "base": 5,
+        "oppBase": 0,
+        "reward": 9.733333333333333
+      },
+      {
+        "my": "D",
+        "opp": "C",
+        "prev": "D",
+        "base": 5,
+        "oppBase": 0,
+        "reward": 9.733333333333333
+      },
+      {
+        "my": "D",
+        "opp": "D",
+        "prev": null,
+        "base": 1,
+        "oppBase": 1,
+        "reward": 1.2
+      },
+      {
+        "my": "D",
+        "opp": "D",
+        "prev": "D",
+        "base": 1,
+        "oppBase": 1,
+        "reward": 1.2
+      }
+    ],
+    "stateExamples": [
+      {
+        "my": [],
+        "opp": [],
+        "state": 0
+      },
+      {
+        "my": [
+          "C",
+          "D",
+          "C"
+        ],
+        "opp": [
+          "C",
+          "C",
+          "D"
+        ],
+        "state": 17
+      },
+      {
+        "my": [
+          "D",
+          "D",
+          "D"
+        ],
+        "opp": [
+          "D",
+          "D",
+          "D"
+        ],
+        "state": 63
+      },
+      {
+        "my": [
+          "C",
+          "C",
+          "D"
+        ],
+        "opp": [
+          "D",
+          "C",
+          "C"
+        ],
+        "state": 12
+      }
+    ],
+    "nToFloor": 5989.96655611847,
+    "nStates": 64,
+    "memory": 3,
+    "payoff": {
+      "C,C": [
+        3,
+        3
+      ],
+      "C,D": [
+        0,
+        5
+      ],
+      "D,C": [
+        5,
+        0
+      ],
+      "D,D": [
+        1,
+        1
+      ]
+    }
+  },
+  "experimentA": {
+    "empathy": [
+      {
+        "level": 0,
+        "coopRate": 0.2253333333333333,
+        "coopRateSD": 0.11688265720608663,
+        "avgScore": 2.156333333333333,
+        "avgQC": 38.46152450103367,
+        "avgQD": 56.271005505802464,
+        "statesPreferC": 10.333333333333334
+      },
+      {
+        "level": 0.25,
+        "coopRate": 0.6513333333333332,
+        "coopRateSD": 0.036645448406164814,
+        "avgScore": 2.5033333333333334,
+        "avgQC": 41.65647341823502,
+        "avgQD": 54.54044848825786,
+        "statesPreferC": 15.666666666666666
+      },
+      {
+        "level": 0.5,
+        "coopRate": 0.24433333333333332,
+        "coopRateSD": 0.019754043186705407,
+        "avgScore": 2.266,
+        "avgQC": 43.108739585471476,
+        "avgQD": 58.55192464919529,
+        "statesPreferC": 15.333333333333334
+      },
+      {
+        "level": 0.75,
+        "coopRate": 0.7133333333333333,
+        "coopRateSD": 0.03771236166328251,
+        "avgScore": 2.4373333333333336,
+        "avgQC": 46.13631603291401,
+        "avgQD": 60.15893843282282,
+        "statesPreferC": 17.666666666666668
+      },
+      {
+        "level": 1,
+        "coopRate": 0.5399999999999999,
+        "coopRateSD": 0.258905388124697,
+        "avgScore": 2.3989999999999996,
+        "avgQC": 56.21578765367431,
+        "avgQD": 63.311120126443654,
+        "statesPreferC": 26
+      }
+    ],
+    "competitiveness": [
+      {
+        "level": 0,
+        "coopRate": 0.782,
+        "coopRateSD": 0.007071067811865481,
+        "avgScore": 2.3489999999999998,
+        "avgQC": 53.25756899335835,
+        "avgQD": 54.17608315079812,
+        "statesPreferC": 30.333333333333332
+      },
+      {
+        "level": 0.25,
+        "coopRate": 0.7593333333333333,
+        "coopRateSD": 0.02910135544762289,
+        "avgScore": 2.3653333333333335,
+        "avgQC": 46.99867772202325,
+        "avgQD": 55.89385629953491,
+        "statesPreferC": 23.333333333333332
+      },
+      {
+        "level": 0.5,
+        "coopRate": 0.6903333333333334,
+        "coopRateSD": 0.03183638728806323,
+        "avgScore": 2.4546666666666668,
+        "avgQC": 43.90992277189602,
+        "avgQD": 54.02328103227891,
+        "statesPreferC": 21
+      },
+      {
+        "level": 0.75,
+        "coopRate": 0.4756666666666667,
+        "coopRateSD": 0.27792125183623906,
+        "avgScore": 2.376,
+        "avgQC": 41.94947842789093,
+        "avgQD": 56.8644440284524,
+        "statesPreferC": 12.666666666666666
+      },
+      {
+        "level": 1,
+        "coopRate": 0.49366666666666664,
+        "coopRateSD": 0.1933120677959748,
+        "avgScore": 2.4570000000000003,
+        "avgQC": 40.285035486972205,
+        "avgQD": 60.478381076817946,
+        "statesPreferC": 11
+      }
+    ],
+    "risk_aversion": [
+      {
+        "level": 0,
+        "coopRate": 0.5786666666666668,
+        "coopRateSD": 0.17402171001215783,
+        "avgScore": 2.358,
+        "avgQC": 46.889068939004346,
+        "avgQD": 56.217463120056586,
+        "statesPreferC": 20
+      },
+      {
+        "level": 0.25,
+        "coopRate": 0.5723333333333334,
+        "coopRateSD": 0.1867553360832176,
+        "avgScore": 2.3796666666666666,
+        "avgQC": 49.36069534406105,
+        "avgQD": 59.917954435277295,
+        "statesPreferC": 19.333333333333332
+      },
+      {
+        "level": 0.5,
+        "coopRate": 0.7216666666666667,
+        "coopRateSD": 0.09160179522743475,
+        "avgScore": 2.447666666666667,
+        "avgQC": 42.948004447693656,
+        "avgQD": 50.67436259782999,
+        "statesPreferC": 20
+      },
+      {
+        "level": 0.75,
+        "coopRate": 0.702,
+        "coopRateSD": 0.0029439202887759515,
+        "avgScore": 2.47,
+        "avgQC": 47.813978258371286,
+        "avgQD": 58.86728289420093,
+        "statesPreferC": 21.666666666666668
+      },
+      {
+        "level": 1,
+        "coopRate": 0.6673333333333334,
+        "coopRateSD": 0.03549021774454975,
+        "avgScore": 2.516666666666667,
+        "avgQC": 41.49028799168499,
+        "avgQD": 51.26069793125225,
+        "statesPreferC": 17.333333333333332
+      }
+    ],
+    "forgiveness": [
+      {
+        "level": 0,
+        "coopRate": 0.375,
+        "coopRateSD": 0.1928851126102444,
+        "avgScore": 2.353,
+        "avgQC": 40.429560286139825,
+        "avgQD": 52.20046284512517,
+        "statesPreferC": 14.666666666666666
+      },
+      {
+        "level": 0.25,
+        "coopRate": 0.46199999999999997,
+        "coopRateSD": 0.28246061672381867,
+        "avgScore": 2.4453333333333336,
+        "avgQC": 41.60244019095281,
+        "avgQD": 55.90950277475505,
+        "statesPreferC": 12.333333333333334
+      },
+      {
+        "level": 0.5,
+        "coopRate": 0.7223333333333333,
+        "coopRateSD": 0.040499657063019945,
+        "avgScore": 2.4310000000000005,
+        "avgQC": 45.78644312317118,
+        "avgQD": 56.20649674506793,
+        "statesPreferC": 19.666666666666668
+      },
+      {
+        "level": 0.75,
+        "coopRate": 0.6156666666666667,
+        "coopRateSD": 0.13578005089932108,
+        "avgScore": 2.337666666666667,
+        "avgQC": 46.18692977140503,
+        "avgQD": 57.470097006821675,
+        "statesPreferC": 18.333333333333332
+      },
+      {
+        "level": 1,
+        "coopRate": 0.38199999999999995,
+        "coopRateSD": 0.2052575617770675,
+        "avgScore": 2.3729999999999998,
+        "avgQC": 44.95576225699555,
+        "avgQD": 61.2659584614203,
+        "statesPreferC": 12.666666666666666
+      }
+    ],
+    "short_term": [
+      {
+        "level": 0,
+        "coopRate": 0.504,
+        "coopRateSD": 0.13027151133945847,
+        "avgScore": 2.231,
+        "avgQC": 39.904169488897914,
+        "avgQD": 47.92797338822424,
+        "statesPreferC": 20.333333333333332
+      },
+      {
+        "level": 0.25,
+        "coopRate": 0.5953333333333334,
+        "coopRateSD": 0.11880048634393528,
+        "avgScore": 2.2823333333333333,
+        "avgQC": 41.90334611913943,
+        "avgQD": 53.33941233364984,
+        "statesPreferC": 17.666666666666668
+      },
+      {
+        "level": 0.5,
+        "coopRate": 0.737,
+        "coopRateSD": 0.09865427850157674,
+        "avgScore": 2.4273333333333333,
+        "avgQC": 43.618933065937846,
+        "avgQD": 56.83017561267718,
+        "statesPreferC": 19.666666666666668
+      },
+      {
+        "level": 0.75,
+        "coopRate": 0.5990000000000001,
+        "coopRateSD": 0.2744388213548999,
+        "avgScore": 2.3373333333333335,
+        "avgQC": 50.73026860840424,
+        "avgQD": 59.381287327343394,
+        "statesPreferC": 24.666666666666668
+      },
+      {
+        "level": 1,
+        "coopRate": 0.5630000000000001,
+        "coopRateSD": 0.1989187438796723,
+        "avgScore": 2.3956666666666666,
+        "avgQC": 49.119105856303214,
+        "avgQD": 63.45690405093063,
+        "statesPreferC": 16.666666666666668
+      }
+    ]
+  },
+  "experimentB": {
+    "rows": [
+      {
+        "name": "P01",
+        "traits": {
+          "name": "P01",
+          "empathy": 0.4,
+          "risk_aversion": 0.35,
+          "competitiveness": 0.08,
+          "forgiveness": 0.57,
+          "short_term": 0.82
+        },
+        "coopRate": 0.8685416666666667,
+        "avgScore": 2.481875,
+        "avgQC": 56.332026419319824,
+        "avgQD": 56.24981136797832,
+        "statesPreferC": 29,
+        "classify": "협력형"
+      },
+      {
+        "name": "P02",
+        "traits": {
+          "name": "P02",
+          "empathy": 0.26,
+          "risk_aversion": 0.34,
+          "competitiveness": 0.05,
+          "forgiveness": 0.6,
+          "short_term": 0.1
+        },
+        "coopRate": 0.8516666666666667,
+        "avgScore": 2.5835416666666666,
+        "avgQC": 41.95558123579363,
+        "avgQD": 45.74772280039333,
+        "statesPreferC": 29,
+        "classify": "협력형"
+      },
+      {
+        "name": "P03",
+        "traits": {
+          "name": "P03",
+          "empathy": 0.95,
+          "risk_aversion": 0.46,
+          "competitiveness": 0.4,
+          "forgiveness": 0.38,
+          "short_term": 0.49
+        },
+        "coopRate": 0.345625,
+        "avgScore": 1.9,
+        "avgQC": 54.628757580995874,
+        "avgQD": 57.762184179831216,
+        "statesPreferC": 26,
+        "classify": "기회주의형"
+      },
+      {
+        "name": "P04",
+        "traits": {
+          "name": "P04",
+          "empathy": 0.2,
+          "risk_aversion": 0.77,
+          "competitiveness": 0.57,
+          "forgiveness": 0.67,
+          "short_term": 0.6
+        },
+        "coopRate": 0.38208333333333333,
+        "avgScore": 2.1260416666666666,
+        "avgQC": 42.07641374622847,
+        "avgQD": 54.68673945472441,
+        "statesPreferC": 21,
+        "classify": "기회주의형"
+      },
+      {
+        "name": "P05",
+        "traits": {
+          "name": "P05",
+          "empathy": 0.75,
+          "risk_aversion": 0.33,
+          "competitiveness": 0.64,
+          "forgiveness": 0.08,
+          "short_term": 0.81
+        },
+        "coopRate": 0.745,
+        "avgScore": 2.62625,
+        "avgQC": 49.86515098860231,
+        "avgQD": 58.50894035474989,
+        "statesPreferC": 16,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P06",
+        "traits": {
+          "name": "P06",
+          "empathy": 0.15,
+          "risk_aversion": 0.29,
+          "competitiveness": 0.47,
+          "forgiveness": 0.18,
+          "short_term": 0.61
+        },
+        "coopRate": 0.7939583333333333,
+        "avgScore": 2.7375,
+        "avgQC": 39.925697371670374,
+        "avgQD": 53.25103735373829,
+        "statesPreferC": 16,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P07",
+        "traits": {
+          "name": "P07",
+          "empathy": 0.46,
+          "risk_aversion": 0.2,
+          "competitiveness": 0.16,
+          "forgiveness": 0.64,
+          "short_term": 0.54
+        },
+        "coopRate": 0.8495833333333334,
+        "avgScore": 2.6335416666666664,
+        "avgQC": 52.623486577344316,
+        "avgQD": 51.74887474249525,
+        "statesPreferC": 31,
+        "classify": "협력형"
+      },
+      {
+        "name": "P08",
+        "traits": {
+          "name": "P08",
+          "empathy": 0.57,
+          "risk_aversion": 0.67,
+          "competitiveness": 0.83,
+          "forgiveness": 0.38,
+          "short_term": 0.45
+        },
+        "coopRate": 0.6683333333333333,
+        "avgScore": 2.506666666666667,
+        "avgQC": 35.24625515918389,
+        "avgQD": 60.35182374388587,
+        "statesPreferC": 8,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P09",
+        "traits": {
+          "name": "P09",
+          "empathy": 0.61,
+          "risk_aversion": 0.21,
+          "competitiveness": 0.8,
+          "forgiveness": 0.41,
+          "short_term": 0.32
+        },
+        "coopRate": 0.7947916666666667,
+        "avgScore": 2.605,
+        "avgQC": 40.5979971829379,
+        "avgQD": 51.837826694198434,
+        "statesPreferC": 15,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P10",
+        "traits": {
+          "name": "P10",
+          "empathy": 0.32,
+          "risk_aversion": 0.3,
+          "competitiveness": 0.45,
+          "forgiveness": 0.99,
+          "short_term": 0.5
+        },
+        "coopRate": 0.7697916666666667,
+        "avgScore": 2.69375,
+        "avgQC": 44.104874703405265,
+        "avgQD": 60.49294612509073,
+        "statesPreferC": 15,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P11",
+        "traits": {
+          "name": "P11",
+          "empathy": 0.17,
+          "risk_aversion": 0.89,
+          "competitiveness": 0.68,
+          "forgiveness": 0.25,
+          "short_term": 0.83
+        },
+        "coopRate": 0.733125,
+        "avgScore": 2.595625,
+        "avgQC": 44.93894354765295,
+        "avgQD": 59.374295963620746,
+        "statesPreferC": 12,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P12",
+        "traits": {
+          "name": "P12",
+          "empathy": 0.53,
+          "risk_aversion": 0.72,
+          "competitiveness": 0.29,
+          "forgiveness": 0.82,
+          "short_term": 0.06
+        },
+        "coopRate": 0.35520833333333335,
+        "avgScore": 2.0047916666666667,
+        "avgQC": 36.32090171399339,
+        "avgQD": 46.12584550737998,
+        "statesPreferC": 21,
+        "classify": "기회주의형"
+      },
+      {
+        "name": "P13",
+        "traits": {
+          "name": "P13",
+          "empathy": 0.4,
+          "risk_aversion": 0.26,
+          "competitiveness": 0.95,
+          "forgiveness": 0.82,
+          "short_term": 0.24
+        },
+        "coopRate": 0.34875,
+        "avgScore": 2.25875,
+        "avgQC": 39.77307990271967,
+        "avgQD": 54.083979541897804,
+        "statesPreferC": 19,
+        "classify": "기회주의형"
+      },
+      {
+        "name": "P14",
+        "traits": {
+          "name": "P14",
+          "empathy": 0.43,
+          "risk_aversion": 1,
+          "competitiveness": 0.99,
+          "forgiveness": 0.62,
+          "short_term": 0.96
+        },
+        "coopRate": 0.29791666666666666,
+        "avgScore": 1.9039583333333334,
+        "avgQC": 42.56195125172424,
+        "avgQD": 65.31883403790012,
+        "statesPreferC": 11,
+        "classify": "배신형"
+      },
+      {
+        "name": "P15",
+        "traits": {
+          "name": "P15",
+          "empathy": 0.17,
+          "risk_aversion": 0.72,
+          "competitiveness": 0.55,
+          "forgiveness": 0.21,
+          "short_term": 0.09
+        },
+        "coopRate": 0.7454166666666666,
+        "avgScore": 2.6779166666666665,
+        "avgQC": 29.690848124463134,
+        "avgQD": 43.45411419017313,
+        "statesPreferC": 8,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P16",
+        "traits": {
+          "name": "P16",
+          "empathy": 0.47,
+          "risk_aversion": 0.84,
+          "competitiveness": 0.17,
+          "forgiveness": 0.43,
+          "short_term": 0.33
+        },
+        "coopRate": 0.7895833333333333,
+        "avgScore": 2.7397916666666666,
+        "avgQC": 38.83282539372093,
+        "avgQD": 45.012975567982615,
+        "statesPreferC": 23,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P17",
+        "traits": {
+          "name": "P17",
+          "empathy": 0.51,
+          "risk_aversion": 0.57,
+          "competitiveness": 0.44,
+          "forgiveness": 0.6,
+          "short_term": 0.14
+        },
+        "coopRate": 0.759375,
+        "avgScore": 2.6635416666666667,
+        "avgQC": 40.54350863886894,
+        "avgQD": 49.81619941776313,
+        "statesPreferC": 18,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P18",
+        "traits": {
+          "name": "P18",
+          "empathy": 0.27,
+          "risk_aversion": 0.58,
+          "competitiveness": 0.99,
+          "forgiveness": 0.6,
+          "short_term": 0.56
+        },
+        "coopRate": 0.321875,
+        "avgScore": 2.2877083333333332,
+        "avgQC": 39.40242423267441,
+        "avgQD": 58.705825969761904,
+        "statesPreferC": 14,
+        "classify": "기회주의형"
+      },
+      {
+        "name": "P19",
+        "traits": {
+          "name": "P19",
+          "empathy": 0.28,
+          "risk_aversion": 0.18,
+          "competitiveness": 0.4,
+          "forgiveness": 0.8,
+          "short_term": 0.26
+        },
+        "coopRate": 0.7939583333333333,
+        "avgScore": 2.665208333333333,
+        "avgQC": 47.82076643600929,
+        "avgQD": 58.14553546733933,
+        "statesPreferC": 20,
+        "classify": "조건협력형"
+      },
+      {
+        "name": "P20",
+        "traits": {
+          "name": "P20",
+          "empathy": 0.23,
+          "risk_aversion": 0.43,
+          "competitiveness": 0.21,
+          "forgiveness": 0.19,
+          "short_term": 0.35
+        },
+        "coopRate": 0.8275,
+        "avgScore": 2.553125,
+        "avgQC": 42.36815733043908,
+        "avgQD": 48.56948651075845,
+        "statesPreferC": 27,
+        "classify": "협력형"
+      }
+    ],
+    "baseRows": [
+      {
+        "name": "팃포탯",
+        "coopRate": 0.831875,
+        "avgScore": 2.77875
+      },
+      {
+        "name": "그루지",
+        "coopRate": 0.6685416666666667,
+        "avgScore": 2.49125
+      },
+      {
+        "name": "항상협력",
+        "coopRate": 1,
+        "avgScore": 2.4125
+      },
+      {
+        "name": "항상배신",
+        "coopRate": 0,
+        "avgScore": 1.7725
+      },
+      {
+        "name": "랜덤",
+        "coopRate": 0.5052083333333334,
+        "avgScore": 1.654375
+      }
+    ],
+    "corr": [
+      {
+        "key": "empathy",
+        "label": "공감 능력",
+        "r": -0.21465732549573197
+      },
+      {
+        "key": "risk_aversion",
+        "label": "위험 회피",
+        "r": -0.42567505767712494
+      },
+      {
+        "key": "competitiveness",
+        "label": "경쟁심",
+        "r": -0.5703639601333617
+      },
+      {
+        "key": "forgiveness",
+        "label": "용서 성향",
+        "r": -0.3082806261783076
+      },
+      {
+        "key": "short_term",
+        "label": "단기 이익 선호",
+        "r": -0.10644320670903616
+      }
+    ]
+  },
+  "config": {
+    "EPISODES": 3000,
+    "ROUNDS_PER_EP": 100,
+    "TOURNEY_ROUNDS": 200
+  }
+}
