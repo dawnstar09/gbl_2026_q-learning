@@ -178,7 +178,10 @@ export interface Agent {
   traits: Traits | Record<string, never>;
   decide(): Action;
   update(my: Action, opp: Action): void;
+  /** 최근 MEMORY 라운드 기억만 초기화한다. 누적 통계는 유지된다. */
   resetGame(): void;
+  /** 협력률 집계용 누적 카운터를 0으로 되돌린다 (토너먼트 시작 시 호출). */
+  resetStats(): void;
   coopRate(): number;
   totalScore: number;
   isTraining: boolean;
@@ -196,6 +199,9 @@ export class QLearningAgent implements Agent {
   Q: [number, number][];
   private myHist: Action[] = [];
   private oppHist: Action[] = [];
+  // 협력률 집계용 누적 카운터 (resetGame이 아니라 resetStats로만 초기화된다)
+  private coopCount = 0;
+  private moveCount = 0;
   totalScore = 0;
   isTraining = true;
 
@@ -249,6 +255,8 @@ export class QLearningAgent implements Agent {
   update(my: Action, opp: Action) {
     this.myHist.push(my);
     this.oppHist.push(opp);
+    this.moveCount += 1;
+    if (my === "C") this.coopCount += 1;
   }
 
   resetGame() {
@@ -256,8 +264,13 @@ export class QLearningAgent implements Agent {
     this.oppHist = [];
   }
 
+  resetStats() {
+    this.coopCount = 0;
+    this.moveCount = 0;
+  }
+
   coopRate(): number {
-    return this.myHist.length ? this.myHist.filter((a) => a === "C").length / this.myHist.length : 0;
+    return this.moveCount ? this.coopCount / this.moveCount : 0;
   }
 
   qSummary() {
@@ -290,6 +303,8 @@ abstract class BaselineAgent implements Agent {
   isTraining = false;
   protected myHist: Action[] = [];
   protected oppHist: Action[] = [];
+  private coopCount = 0;
+  private moveCount = 0;
 
   constructor(name: string) {
     this.id = nextAgentId("bl");
@@ -301,13 +316,19 @@ abstract class BaselineAgent implements Agent {
   update(my: Action, opp: Action) {
     this.myHist.push(my);
     this.oppHist.push(opp);
+    this.moveCount += 1;
+    if (my === "C") this.coopCount += 1;
   }
   resetGame() {
     this.myHist = [];
     this.oppHist = [];
   }
+  resetStats() {
+    this.coopCount = 0;
+    this.moveCount = 0;
+  }
   coopRate(): number {
-    return this.myHist.length ? this.myHist.filter((a) => a === "C").length / this.myHist.length : 0;
+    return this.moveCount ? this.coopCount / this.moveCount : 0;
   }
 }
 
@@ -466,7 +487,11 @@ export interface TournamentResult {
 // summary는 agent.id로 키를 잡는다 (참가자가 이름을 중복 입력할 수 있으므로 name은 표시 전용).
 export function runTournament(agents: Agent[], rounds = 100): Record<string, TournamentResult> {
   const stats: Record<string, { score: number; rounds: number }> = {};
-  agents.forEach((a) => (stats[a.id] = { score: 0, rounds: 0 }));
+  agents.forEach((a) => {
+    stats[a.id] = { score: 0, rounds: 0 };
+    // 학습 단계의 행동이 협력률에 섞이지 않도록 토너먼트 시작 시 초기화
+    a.resetStats();
+  });
 
   for (let i = 0; i < agents.length; i++) {
     for (let j = i + 1; j < agents.length; j++) {

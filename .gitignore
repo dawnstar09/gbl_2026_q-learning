@@ -45,3 +45,6 @@ paper/node_modules
 
 # 로고 디자인 스크래치 작업 (최종본은 src/components/ui/LogoMark.tsx)
 logo_work/
+
+# 보고서 실험용 엔진 컴파일 산출물
+paper/build/
