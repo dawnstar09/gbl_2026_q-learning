@@ -1,6 +1,6 @@
 "use client";
 
-export function TitleScreen({ onStart }: { onStart: () => void }) {
+export function TitleScreen({ onStart, onDuel }: { onStart: () => void; onDuel: () => void }) {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-white px-4 py-10">
       <div className="w-full max-w-sm flex flex-col items-center text-center animate-fade-in-up">
@@ -13,6 +13,14 @@ export function TitleScreen({ onStart }: { onStart: () => void }) {
                      transition-all duration-200 hover:bg-[#a6b9f2] hover:-translate-y-0.5 active:scale-[0.98]"
         >
           게임 시작
+        </button>
+
+        <button
+          onClick={onDuel}
+          className="mt-3 w-full rounded-full border-2 border-[#0d0d14] py-[15px] text-base font-extrabold text-[#0d0d14]
+                     transition-all duration-200 hover:bg-[#0d0d14] hover:text-white hover:-translate-y-0.5 active:scale-[0.98]"
+        >
+          둘이서 대결
         </button>
 
         <p className="mt-6 text-[11px] text-[#6b7280] max-w-xs leading-relaxed">

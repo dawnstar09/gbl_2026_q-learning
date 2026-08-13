@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { TitleScreen } from "@/components/screens/TitleScreen";
 import { TutorialScreen } from "@/components/screens/TutorialScreen";
+import { DuelScreen } from "@/components/screens/DuelScreen";
 import { ExperimentSettings, SettingsScreen } from "@/components/screens/SettingsScreen";
 import { SurveyScreen } from "@/components/screens/SurveyScreen";
 import { TrainingScreen } from "@/components/screens/TrainingScreen";
@@ -16,7 +17,7 @@ import {
   Traits,
 } from "@/lib/engine";
 
-type Phase = "title" | "tutorial" | "settings" | "survey" | "training" | "results";
+type Phase = "title" | "tutorial" | "duel" | "settings" | "survey" | "training" | "results";
 
 export default function Home() {
   const [phase, setPhase] = useState<Phase>("title");
@@ -38,7 +39,11 @@ export default function Home() {
   };
 
   if (phase === "title") {
-    return <TitleScreen onStart={() => setPhase("tutorial")} />;
+    return <TitleScreen onStart={() => setPhase("tutorial")} onDuel={() => setPhase("duel")} />;
+  }
+
+  if (phase === "duel") {
+    return <DuelScreen onExit={() => setPhase("title")} />;
   }
 
   if (phase === "tutorial") {
@@ -100,5 +105,5 @@ export default function Home() {
     );
   }
 
-  return <TitleScreen onStart={() => setPhase("tutorial")} />;
+  return <TitleScreen onStart={() => setPhase("tutorial")} onDuel={() => setPhase("duel")} />;
 }

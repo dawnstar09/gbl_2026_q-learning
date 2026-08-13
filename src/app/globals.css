@@ -71,3 +71,42 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* ─── 2인 대결 모드 연출 ───────────────────────────────────────── */
+
+@keyframes duel-shake {
+  0%, 100% { transform: translate(0, 0); }
+  15% { transform: translate(-9px, 3px); }
+  30% { transform: translate(8px, -4px); }
+  45% { transform: translate(-7px, -2px); }
+  60% { transform: translate(6px, 3px); }
+  80% { transform: translate(-3px, 1px); }
+}
+
+@keyframes duel-flash {
+  0% { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+
+@keyframes duel-flip {
+  0% { transform: rotateY(90deg) scale(0.9); opacity: 0; }
+  60% { transform: rotateY(-8deg) scale(1.04); opacity: 1; }
+  100% { transform: rotateY(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes duel-pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes duel-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 60, 60, 0.55); }
+  50% { box-shadow: 0 0 0 16px rgba(220, 60, 60, 0); }
+}
+
+.animate-duel-shake { animation: duel-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+.animate-duel-flash { animation: duel-flash 0.45s ease-out both; }
+.animate-duel-flip { animation: duel-flip 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-duel-pop { animation: duel-pop 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-duel-ring { animation: duel-ring 1s ease-out infinite; }
