@@ -380,6 +380,30 @@ R<sub>&theta;</sub>(a, a&prime;, a<sub>prev</sub>) =<br>
 &alpha;=0.1, 감쇠율 &gamma;=0.95를 사용한다.</p>
 <div class="eq">Q(s,a) &larr; Q(s,a) + &alpha;[ r + &gamma;&middot;max<sub>a&prime;</sub>Q(s&prime;,a&prime;)
   &minus; Q(s,a) ] <span class="num">&nbsp;(6)</span></div>
+<p>식 (6)의 대괄호는 TD 오차, 곧 &quot;직접 겪은 결과가 기존 추정치보다 얼마나 놀라운가&quot;이다.
+학습률 &alpha;=0.1은 이 놀라움을 Q값에 반영하는 비율로, 매 갱신마다 오차의 10%만 수용한다. &alpha;를
+크게 잡으면 최근 한두 판의 우연한 결과에 Q값이 과도하게 흔들리고(분산 증가), 지나치게 작으면
+{CFG['EPISODES']}에피소드 안에 수렴하지 못한다(편향 잔존). 0.1은 총 갱신 횟수({CFG['EPISODES']*CFG['ROUNDS_PER_EP']:,}회
+={CFG['EPISODES']}에피소드&times;{CFG['ROUNDS_PER_EP']}라운드)를 감안해 상태당 평균 방문 횟수만큼 여러 번
+평균낼 여지를 준 값이다.</p>
+<p>감쇠율 &gamma;=0.95는 미래 보상을 현재 가치로 환산하는 비율이며, 이는 곧 에이전트가 몇 라운드
+앞까지를 &quot;지금 결정에 중요하다&quot;고 보는지를 정한다. 기하급수 &sum;&gamma;<sup>k</sup>의 유효
+항 수, 즉 유효 지평(effective horizon)은 다음과 같다.</p>
+<div class="eq">H = 1 / (1 &minus; &gamma;) = 1 / 0.05 = 20 <span class="num">&nbsp;(6-1)</span></div>
+<p class="noind">즉 에이전트는 대략 20라운드 앞까지의 결과를 의미 있게 반영하여 현재 행동을 결정한다.
+한 에피소드가 {CFG['ROUNDS_PER_EP']}라운드이므로 유효 지평은 에피소드 길이의 20%에 해당하며, 상대의
+보복이나 용서가 몇 라운드 뒤에 돌아오더라도 그 영향을 반영할 만큼은 충분히 길다.</p>
+<p>&gamma;가 명제 2의 협력 지속 조건에서 어떤 역할을 하는지도 직접 풀어낼 수 있다. 부등식
+3+2e&ge;(1&minus;&gamma;)(5+4c)+&gamma;를 &gamma;에 대해 정리하면 임계 감쇠율
+&gamma;*(e,c)를 얻는다.</p>
+<div class="eq">&gamma;*(e,c) = (T&minus;R) / (4+4c) = (2+4c&minus;2e) / (4+4c)
+  <span class="num">&nbsp;(6-2)</span></div>
+<p class="noind">&gamma;&ge;&gamma;*(e,c)를 만족해야 그 성격의 에이전트가 상호적 상대에게 협력을 지속할
+유인을 갖는다. [표 3]의 도메인 [0,1]<sup>2</sup>에서 &gamma;*의 최댓값은 <i>e</i>=0, <i>c</i>=1에서
+&gamma;*=6/8=0.75로, 가장 비관적인 성격 조합에서도 0.75를 넘지 않는다. 실제 사용한 &gamma;=0.95는 이
+최댓값보다 0.20 크므로, 본 시뮬레이션은 어떤 참가자의 성격이 대입되어도 여유 있게 명제 2의 조건을
+만족하도록 설계되어 있었던 셈이다. 반대로 만약 &gamma;를 0.7 이하로 낮췄다면 공감이 낮고 경쟁심이 높은
+일부 참가자에게서는 반복게임에서도 협력이 지속되지 않는 정책이 나올 수 있었다.</p>
 <p>탐험률 &epsilon;는 1.0에서 시작하여 갱신 1회마다 0.9995배로 감소하고 하한은 0.05이다. 하한 도달에
 필요한 갱신 횟수는 다음과 같다.</p>
 <div class="eq">n = ln(0.05) / ln(0.9995) &asymp; {n_floor:.0f}
